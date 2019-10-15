@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>一叶知秋</title>
+<title>Egret 游戏开发：理解游戏生命周期 | 一叶知秋</title>
 <meta name="description" content="桃李春风一壶酒，江湖夜雨十年灯。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,6 +13,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://sky111144.github.io/styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -99,60 +105,70 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://sky111144.github.io/post/egret-you-xi-kai-fa-li-jie-you-xi-sheng-ming-zhou-qi">
-                  <h2 class="post-title">Egret 游戏开发：理解游戏生命周期</h2>
-                </a>
-                <div class="post-date">
-                  2019-10-13
-                </div>
-                <div class="post-abstract">
-                  <p>一个游戏，具有自身的生命周期，从注册资源解析器、游戏资源预加载、游戏开始场景渲染、游戏主场景渲染…… 理解游戏生命周期，是开发游戏的第一步。</p>
+          <div class="post-detail">
+            <h2 class="post-title">Egret 游戏开发：理解游戏生命周期</h2>
+            <div class="post-date">2019-10-13</div>
+            
+            <div class="post-content">
+              <p>一个游戏，具有自身的生命周期，从注册资源解析器、游戏资源预加载、游戏开始场景渲染、游戏主场景渲染…… 理解游戏生命周期，是开发游戏的第一步。</p>
+<!-- more -->
+<p>游戏资源，按照资源性质可划分为，游戏媒体资源、游戏逻辑代码。游戏媒体资源，体积远远大于游戏逻辑代码，加载时间也远远大于游戏逻辑代码，需要进行资源预加载。</p>
+<h4 id="注册资源解析器">注册资源解析器</h4>
+<ol>
+<li>游戏资源加载之前，需要注册资源解析器。</li>
+</ol>
+<h4 id="游戏资源预加载">游戏资源预加载</h4>
+<ol>
+<li>Loading素材加载</li>
+<li>Loading场景渲染</li>
+<li>其他游戏资源加载</li>
+<li>游戏皮肤主题加载</li>
+<li>退出Loading场景</li>
+</ol>
+<h4 id="游戏场景渲染">游戏场景渲染</h4>
+<h5 id="游戏开始场景渲染">游戏开始场景渲染</h5>
+<ol>
+<li>单机游戏：开始菜单（创建新游戏、游戏存档读取、游戏配置选择）。</li>
+<li>网络游戏：账号登录、服务器选择、开始菜单（菜单内容不固定）。</li>
+</ol>
+<h4 id="游戏主场景渲染">游戏主场景渲染</h4>
+<p>游戏主场景，往往和游戏类型，策划内容相关，是游戏策划内容的直接体现。</p>
+<ol>
+<li>文字剧情类。以问答对话为中心。</li>
+<li>角色扮演类。以游戏地图为中心。</li>
+<li>第一人称射击。以第一人称射击视野为中心。</li>
+<li>即时战略类。以游戏多方对战为中心。</li>
+<li>战棋类。以游戏对战规则设计为中心。</li>
+<li>模拟经营类。以经营主体发展结果为中心。</li>
+</ol>
+<h5 id="游戏结束场景渲染">游戏结束场景渲染</h5>
+<ol>
+<li>单机游戏：结束动画、游戏成绩统计。</li>
+<li>网络游戏：可能没有，直接回到开始场景。</li>
+</ol>
 
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
                 <a href="https://sky111144.github.io/post/qian-duan-dong-hua-jie-jue-fang-an">
-                  <h2 class="post-title">前端动画：对比六种解决方案的差异</h2>
+                  <h3 class="post-title">
+                    前端动画：对比六种解决方案的差异
+                  </h3>
                 </a>
-                <div class="post-date">
-                  2019-10-11
-                </div>
-                <div class="post-abstract">
-                  <p>前端动画解决方案，致力于通过动画更加优化的表达网页信息，是一个成型的特定技术领域。</p>
-
-                </div>
               </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://sky111144.github.io/post/first">
-                  <h2 class="post-title">揭秘前端码不停蹄的日常工作</h2>
-                </a>
-                <div class="post-date">
-                  2019-10-10
-                </div>
-                <div class="post-abstract">
-                  <p>如果在成熟的团队中，日常有大量的需要协作的地方，那么日常协作是如何进行的呢？</p>
+            
 
-                </div>
-              </div>
+            
               
-            </article>
-          
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
 
-          <div class="pagination-container">
-  
-  
-</div>
+              
+            
+
+          </div>
 
         </div>
       </div>
@@ -174,6 +190,29 @@ var app = new Vue({
 })
 
 </script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'f67588f2050acf0eac00',
+        clientSecret: '4e0e619daea6e2d8a6eaccb00e339762224b2f73',
+        repo: 'sky111144.github.io',
+        owner: 'sky111144',
+        admin: ['sky111144'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 

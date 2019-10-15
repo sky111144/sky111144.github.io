@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>前端动画：对比六种解决方案的差异 | 一叶知秋</title>
+<meta name="description" content="桃李春风一壶酒，江湖夜雨十年灯。">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://sky111144.github.io/favicon.ico?v=1571146256179">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://sky111144.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://sky111144.github.io">
+        <img src="https://sky111144.github.io/images/avatar.png?v=1571146256179" class="site-logo">
+        <h1 class="site-title">一叶知秋</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/sky111144" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+          <a class="social-link" href="https://zhuanlan.zhihu.com/algorithmWithFE" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      桃李春风一壶酒，江湖夜雨十年灯。
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://sky111144.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">前端动画：对比六种解决方案的差异</h2>
+            <div class="post-date">2019-10-11</div>
+            
+            <div class="post-content">
+              <p>前端动画解决方案，致力于通过动画更加优化的表达网页信息，是一个成型的特定技术领域。</p>
+<!-- more -->
+<h4 id="简述">简述</h4>
+<p>前端动画解决方案，按照有无数据封装协议划分为两大类，每类三种，总共六种。</p>
+<h5 id="数据封装协议">数据封装协议</h5>
+<ol>
+<li>Gif 动图</li>
+<li>Video 视频动画</li>
+<li>SVG 动画</li>
+</ol>
+<h5 id="无数据封装协议">无数据封装协议</h5>
+<ol>
+<li>CSS 动画</li>
+<li>JavaScript + CSS 动画</li>
+<li>JavaScript + Canvas/WebGL 动画</li>
+</ol>
+<hr>
+<h4 id="数据封装协议类">数据封装协议类</h4>
+<pre><code>涉及到的协议：
+1、图片协议：GIF
+2、视频协议：MP4、Ogg、WebM
+3、图形语言：SVG、XML
+</code></pre>
+<h5 id="方案一gif-动画">方案一：GIF 动画</h5>
+<pre><code>GIF 是一种特殊的图片格式，能够封装多张图片，以逐帧的方式，单次或循环地，自动播放动画。
+</code></pre>
+<ol>
+<li>体积大小：同等帧数动画，体积较大。GIF 格式本身仅仅进行数据封装，格式本身没有做压缩工作的。如果需要压缩，需要使用压缩软件压缩 GIF 文件，或者在制作的时候压缩各个图片帧。</li>
+<li>边下边播：不能边下边播。浏览器需要一次性加载完毕所有 GIF 包含的数据，才能进行播放。</li>
+<li>自动播放：自动播放。无法接受 JavaScript 的控制。</li>
+<li>循环播放：制作 GIF 的时候，才能选择是否循环播放。</li>
+<li>音频播放：无法播放音频。</li>
+<li>制作难度：不需要编程，掌握简单的图片编辑技能，需要具备简单的动画制作技术。</li>
+<li>制作用途：位图动画。</li>
+</ol>
+<h5 id="方案二视频动画">方案二：视频动画</h5>
+<pre><code>前端视频动画，主要使用 video 组件播放 mp4 动画视频，通过图像算法压缩图片，进行数据封装，以逐帧的方式，单次或循环地播放动画视频。
+</code></pre>
+<ol>
+<li>体积大小：同等帧数动画，体积较小。使用 H264 图像算法压缩图片，质量较高，压缩比大。</li>
+<li>边下边播：支持边下边播。</li>
+<li>自动播放：浏览器对视频自动播放的支持程度不统一。PC 浏览器支持视频自动播放；Mobile 浏览器原生不支持视频自动播放，只有专门从内核层面定制配置才能支持自动播放。</li>
+<li>循环播放：浏览器对视频循环播放的支持程度不统一。PC 浏览器支持视频循环播放；Mobile 浏览器原生不支持视频循环播放，只有专门从内核层面定制配置才能支持循环播放。</li>
+<li>音频播放：可以播放音频。</li>
+<li>制作难度：不需要编程，需要掌握摄影机、专门的动画制作软件，需要具备专门的动画制作技术。</li>
+<li>制作用途：位图动画。</li>
+</ol>
+<h5 id="方案三svg-动画">方案三：SVG 动画</h5>
+<pre><code>SVG 动画，主要使用 XML 语法，层次清晰。
+</code></pre>
+<ol>
+<li>体积大小：同等帧数矢量动画，体积最小。</li>
+<li>边下边播：不支持边下边播。</li>
+<li>自动播放：可自动播放。</li>
+<li>循环播放：可循环播放。</li>
+<li>音频播放：无法播放音频。</li>
+<li>制作难度：需要编程，需要了解 svg 语法。</li>
+<li>制作用途：矢量动画。</li>
+</ol>
+<hr>
+<h4 id="无数据封装协议-2">无数据封装协议</h4>
+<pre><code>涉及到的编程接口：
+1、样式语言：CSS
+2、DOM接口：DOM
+3、图形引擎：Canvas、WebGL
+</code></pre>
+<h5 id="方案三css-动画">方案三：CSS 动画</h5>
+<ol>
+<li>编程方式：声明式。</li>
+<li>编程接口：CSS。</li>
+<li>绘制效率：最高。</li>
+<li>编程难度：最低。</li>
+<li>应用范围：无交互需求的动画。</li>
+</ol>
+<h5 id="方案五javascript-css-动画">方案五：JavaScript + CSS 动画</h5>
+<ol>
+<li>编程方式：命令式。</li>
+<li>编程接口：DOM。</li>
+<li>绘制效率：最低。</li>
+<li>编程难度：次高。</li>
+<li>应用范围：有较简单交互需求的动画。</li>
+</ol>
+<h5 id="方案六javascript-canvaswebgl-动画">方案六：JavaScript + Canvas/WebGL 动画</h5>
+<ol>
+<li>编程方式：命令式。</li>
+<li>编程接口：Canvas、WebGL。</li>
+<li>绘制效率：次高。</li>
+<li>编程难度：最高。</li>
+<li>应用范围：有较复杂交互需求的动画。</li>
+</ol>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://sky111144.github.io/post/first">
+                  <h3 class="post-title">
+                    揭秘前端码不停蹄的日常工作
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'f67588f2050acf0eac00',
+        clientSecret: '4e0e619daea6e2d8a6eaccb00e339762224b2f73',
+        repo: 'sky111144.github.io',
+        owner: 'sky111144',
+        admin: ['sky111144'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
