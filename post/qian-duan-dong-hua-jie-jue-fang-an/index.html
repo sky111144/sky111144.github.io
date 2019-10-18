@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://sky111144.github.io/favicon.ico?v=1571215894290">
+<link rel="shortcut icon" href="https://sky111144.github.io/favicon.ico?v=1571376301106">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://sky111144.github.io/styles/main.css">
 
@@ -36,7 +36,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://sky111144.github.io">
-        <img src="https://sky111144.github.io/images/avatar.png?v=1571215894290" class="site-logo">
+        <img src="https://sky111144.github.io/images/avatar.png?v=1571376301106" class="site-logo">
         <h1 class="site-title">一叶知秋</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -133,42 +133,103 @@
 2、视频协议：MP4、Ogg、WebM
 3、图形语言：SVG、XML
 </code></pre>
+<h5 id="数据封装协议类方案的对比">数据封装协议类方案的对比</h5>
+<table>
+<thead>
+<tr>
+<th>动画方案</th>
+<th>GIF动画</th>
+<th>视频动画</th>
+<th>SVG动画</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>边下边播</td>
+<td>不能边下边播</td>
+<td>能边下边播</td>
+<td>不能边下边播</td>
+</tr>
+<tr>
+<td>自动播放</td>
+<td>能自动播放</td>
+<td>由平台决定</td>
+<td>能自动播放</td>
+</tr>
+<tr>
+<td>循环播放</td>
+<td>能循环播放</td>
+<td>由平台决定</td>
+<td>能循环播放</td>
+</tr>
+<tr>
+<td>音频播放</td>
+<td>不能音频播放</td>
+<td>由平台决定</td>
+<td>不能音频播放</td>
+</tr>
+<tr>
+<td>制作方式</td>
+<td>不需要编程</td>
+<td>不需要编程</td>
+<td>需要编程</td>
+</tr>
+<tr>
+<td>动画类型</td>
+<td>位图动画</td>
+<td>位图动画</td>
+<td>矢量动画</td>
+</tr>
+</tbody>
+</table>
 <h5 id="方案一gif-动画">方案一：GIF 动画</h5>
 <pre><code>GIF 是一种特殊的图片格式，能够封装多张图片，以逐帧的方式，单次或循环地，自动播放动画。
+
+1. 边下边播
+   - 不能。浏览器需要一次性加载完毕所有 GIF 包含的数据，才能进行播放。
+2. 自动播放
+   - 能。无法接受 JavaScript 的控制。
+3. 循环播放
+   - 能。制作 GIF 的时候，才能选择是否循环播放。
+4. 音频播放
+   - 不能。无法播放音频。
+5. 制作方式
+   - 不需要编程，掌握简单的图片编辑技能，需要具备简单的动画制作技术。
+6. 动画类型
+   - 位图动画。
 </code></pre>
-<ol>
-<li>体积大小：同等帧数动画，体积较大。</li>
-<li>边下边播：不能边下边播。浏览器需要一次性加载完毕所有 GIF 包含的数据，才能进行播放。</li>
-<li>自动播放：自动播放。无法接受 JavaScript 的控制。</li>
-<li>循环播放：制作 GIF 的时候，才能选择是否循环播放。</li>
-<li>音频播放：无法播放音频。</li>
-<li>制作难度：不需要编程，掌握简单的图片编辑技能，需要具备简单的动画制作技术。</li>
-<li>制作用途：位图动画。</li>
-</ol>
 <h5 id="方案二视频动画">方案二：视频动画</h5>
 <pre><code>前端视频动画，主要使用 video 组件播放 mp4 动画视频，通过图像算法压缩图片，进行数据封装，以逐帧的方式，单次或循环地播放动画视频。
+
+1. 边下边播
+   - 能。支持边下边播。
+2. 自动播放
+   - 由平台决定。浏览器对视频自动播放的支持程度不统一。PC 浏览器支持视频自动播放；Mobile 浏览器原生不支持视频自动播放，只有专门从内核层面定制配置才能支持自动播放。
+3. 循环播放
+   - 由平台决定。浏览器对视频循环播放的支持程度不统一。PC 浏览器支持视频循环播放；Mobile 浏览器原生不支持视频循环播放，只有专门从内核层面定制配置才能支持循环播放。
+4. 音频播放
+   - 由平台决定。可以播放音频。
+5. 制作方式
+   - 不需要编程，需要掌握摄影机、专门的动画制作软件，需要具备专门的动画制作技术。
+6. 动画类型
+   - 位图动画。
 </code></pre>
-<ol>
-<li>体积大小：同等帧数动画，体积较小。使用 H264 图像算法压缩图片，质量较高，压缩比大。</li>
-<li>边下边播：支持边下边播。</li>
-<li>自动播放：浏览器对视频自动播放的支持程度不统一。PC 浏览器支持视频自动播放；Mobile 浏览器原生不支持视频自动播放，只有专门从内核层面定制配置才能支持自动播放。</li>
-<li>循环播放：浏览器对视频循环播放的支持程度不统一。PC 浏览器支持视频循环播放；Mobile 浏览器原生不支持视频循环播放，只有专门从内核层面定制配置才能支持循环播放。</li>
-<li>音频播放：可以播放音频。</li>
-<li>制作难度：不需要编程，需要掌握摄影机、专门的动画制作软件，需要具备专门的动画制作技术。</li>
-<li>制作用途：位图动画。</li>
-</ol>
 <h5 id="方案三svg-动画">方案三：SVG 动画</h5>
 <pre><code>SVG 动画，主要使用 XML 语法，层次清晰。
+
+1. 边下边播
+   - 不支持边下边播。
+2. 自动播放
+   - 可自动播放。
+3. 循环播放
+   - 可循环播放。
+4. 音频播放
+   - 无法播放音频。
+5. 制作方式
+   - 需要编程，需要了解 svg 语法。
+6. 动画类型
+   - 矢量动画。
 </code></pre>
-<ol>
-<li>体积大小：同等帧数矢量动画，体积最小。</li>
-<li>边下边播：不支持边下边播。</li>
-<li>自动播放：可自动播放。</li>
-<li>循环播放：可循环播放。</li>
-<li>音频播放：无法播放音频。</li>
-<li>制作难度：需要编程，需要了解 svg 语法。</li>
-<li>制作用途：矢量动画。</li>
-</ol>
 <hr>
 <h4 id="无数据封装协议-2">无数据封装协议</h4>
 <pre><code>涉及到的编程接口：
@@ -176,30 +237,85 @@
 2、DOM接口：DOM
 3、图形引擎：Canvas、WebGL
 </code></pre>
+<h5 id="数据封装协议类方案的对比-2">数据封装协议类方案的对比</h5>
+<table>
+<thead>
+<tr>
+<th>动画方案</th>
+<th>CSS动画</th>
+<th>JavaScript + CSS 动画</th>
+<th>JavaScript + Canvas/WebGL 动画</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>编程方式</td>
+<td>声明式</td>
+<td>命令式</td>
+<td>命令式</td>
+</tr>
+<tr>
+<td>编程接口</td>
+<td>CSS</td>
+<td>DOM</td>
+<td>Canvas、WebGL</td>
+</tr>
+<tr>
+<td>绘制效率</td>
+<td>最高</td>
+<td>最低</td>
+<td>次高</td>
+</tr>
+<tr>
+<td>编程难度</td>
+<td>最低</td>
+<td>次高</td>
+<td>最高</td>
+</tr>
+<tr>
+<td>应用范围</td>
+<td>无交互需求</td>
+<td>有较简单交互需求</td>
+<td>有较复杂交互需求</td>
+</tr>
+</tbody>
+</table>
 <h5 id="方案三css-动画">方案三：CSS 动画</h5>
-<ol>
-<li>编程方式：声明式。</li>
-<li>编程接口：CSS。</li>
-<li>绘制效率：最高。</li>
-<li>编程难度：最低。</li>
-<li>应用范围：无交互需求的动画。</li>
-</ol>
+<pre><code>1. 编程方式
+   - 声明式。
+2. 编程接口
+   - CSS。
+3. 绘制效率
+   - 最高。
+4. 编程难度
+   - 最低。
+5. 应用范围
+   - 无交互需求的动画。
+</code></pre>
 <h5 id="方案五javascript-css-动画">方案五：JavaScript + CSS 动画</h5>
-<ol>
-<li>编程方式：命令式。</li>
-<li>编程接口：DOM。</li>
-<li>绘制效率：最低。</li>
-<li>编程难度：次高。</li>
-<li>应用范围：有较简单交互需求的动画。</li>
-</ol>
+<pre><code>1. 编程方式
+   - 命令式。
+2. 编程接口
+   - DOM。
+3. 绘制效率
+   - 最低。
+4. 编程难度
+   - 次高。
+5. 应用范围
+   - 有较简单交互需求的动画。
+</code></pre>
 <h5 id="方案六javascript-canvaswebgl-动画">方案六：JavaScript + Canvas/WebGL 动画</h5>
-<ol>
-<li>编程方式：命令式。</li>
-<li>编程接口：Canvas、WebGL。</li>
-<li>绘制效率：次高。</li>
-<li>编程难度：最高。</li>
-<li>应用范围：有较复杂交互需求的动画。</li>
-</ol>
+<pre><code>1. 编程方式
+   - 命令式。
+2. 编程接口
+   - Canvas、WebGL。
+3. 绘制效率
+   - 次高。
+4. 编程难度
+   - 最高。
+5. 应用范围
+   - 有较复杂交互需求的动画。
+</code></pre>
 
             </div>
             
