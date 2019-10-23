@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Egret 游戏开发（一）：理解游戏生命周期 | 一叶知秋</title>
+<title>前端调试利器（二）：Charles | 一叶知秋</title>
 <meta name="description" content="桃李春风一壶酒，江湖夜雨十年灯。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -106,45 +106,57 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">Egret 游戏开发（一）：理解游戏生命周期</h2>
-            <div class="post-date">2019-10-13</div>
+            <h2 class="post-title">前端调试利器（二）：Charles</h2>
+            <div class="post-date">2019-10-22</div>
             
             <div class="post-content">
-              <p>一个游戏，具有自身的生命周期，从注册资源解析器、游戏资源预加载、游戏开始场景渲染、游戏主场景渲染…… 理解游戏生命周期，是开发游戏的第一步。</p>
+              <p>Charles 作为 HTTP 协议的代理工具，支持请求代理、数据劫持，功能非常强大。</p>
 <!-- more -->
-<p>游戏资源，按照资源性质可划分为，游戏媒体资源、游戏逻辑代码。游戏媒体资源，体积远远大于游戏逻辑代码，加载时间也远远大于游戏逻辑代码，需要进行资源预加载。</p>
-<h4 id="注册资源解析器">注册资源解析器</h4>
+<h3 id="调试准备工作">调试准备工作</h3>
+<h5 id="pc端">PC端</h5>
 <ol>
-<li>游戏资源加载之前，需要注册资源解析器。</li>
+<li>打开 Charles 的 <code>Proxy</code> 菜单，选中 <code>macOS Proxy</code> 或者 <code>Mozilla Firefox Proxy</code>，开始监听网络数据。</li>
 </ol>
-<h4 id="游戏资源预加载">游戏资源预加载</h4>
+<h4 id="移动端">移动端</h4>
 <ol>
-<li>Loading素材加载</li>
-<li>Loading场景渲染</li>
-<li>其他游戏资源加载</li>
-<li>游戏皮肤主题加载</li>
-<li>退出Loading场景</li>
+<li>手机和PC保持连接同一个 <code>Wi-Fi</code> 网络。</li>
+<li>手机将网络代理设置为PC的网络 <code>IP</code>，端口设置为 <code>8888</code>（Charles 设置的端口）。</li>
+<li>手机浏览器访问站点 <code>chls.pro/ssl</code>，下载并安卓 Charles 证书，用于解析 https 数据。</li>
 </ol>
-<h4 id="游戏场景渲染">游戏场景渲染</h4>
-<h5 id="游戏开始场景渲染">游戏开始场景渲染</h5>
+<hr>
+<h3 id="本地文件映射">本地文件映射</h3>
+<h5 id="使用场景">使用场景</h5>
+<ul>
+<li>开发者无法拿到需要调试页面的源代码</li>
+<li>开发者的本地环境和线上环境不一致。</li>
+</ul>
+<h5 id="使用方法">使用方法</h5>
 <ol>
-<li>单机游戏：开始菜单（创建新游戏、游戏存档读取、游戏配置选择）。</li>
-<li>网络游戏：账号登录、服务器选择、开始菜单（菜单内容不固定）。</li>
+<li>设定 <code>Map local</code> 规则</li>
+<li>修改本地文件用于调试</li>
 </ol>
-<h4 id="游戏主场景渲染">游戏主场景渲染</h4>
-<p>游戏主场景，往往和游戏类型，策划内容相关，是游戏策划内容的直接体现。</p>
+<hr>
+<h3 id="网络请求映射">网络请求映射</h3>
+<h5 id="使用场景-2">使用场景</h5>
+<ul>
+<li>开发者需要将同一个网络请求，转发给不同的服务器</li>
+</ul>
+<h5 id="使用方法-2">使用方法</h5>
 <ol>
-<li>文字剧情类。以问答对话为中心。</li>
-<li>角色扮演类。以游戏地图为中心。</li>
-<li>第一人称射击。以第一人称射击视野为中心。</li>
-<li>即时战略类。以游戏多方对战为中心。</li>
-<li>战棋类。以游戏对战规则设计为中心。</li>
-<li>模拟经营类。以经营主体发展结果为中心。</li>
+<li>打开 Charles 的 <code>Tools</code> 菜单，选中 <code>Rewrite</code>。</li>
+<li>新建规则集</li>
+<li>添加转发规则</li>
 </ol>
-<h5 id="游戏结束场景渲染">游戏结束场景渲染</h5>
+<hr>
+<h3 id="网络数据节流">网络数据节流</h3>
+<h5 id="应用场景">应用场景</h5>
+<ul>
+<li>开发者需要模拟不同网速情况下的应用。</li>
+</ul>
+<h5 id="使用方法-3">使用方法</h5>
 <ol>
-<li>单机游戏：结束动画、游戏成绩统计。</li>
-<li>网络游戏：可能没有，直接回到开始场景。</li>
+<li>打开 Charles 的 <code>Proxy</code> 菜单，选中 <code>Throttle Settings</code>。</li>
+<li>从下拉菜单 <code>Throttle preset</code>中，选中需要的模式，根据需要调整网络配置。</li>
 </ol>
 
             </div>
@@ -152,9 +164,9 @@
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://sky111144.github.io/post/qian-duan-dong-hua-jie-jue-fang-an">
+                <a href="https://sky111144.github.io/post/yi-dong-duan-diao-shi-li-qi-1">
                   <h3 class="post-title">
-                    前端动画方案（一）：对比六种技术思路的差异
+                    前端调试利器（一）：Android Debug Bridge
                   </h3>
                 </a>
               </div>
