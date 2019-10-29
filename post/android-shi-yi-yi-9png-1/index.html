@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Egret 游戏开发（一）：理解游戏生命周期 | 一叶知秋</title>
+<title>Android 拾遗（一）：9.png 图片制作 | 一叶知秋</title>
 <meta name="description" content="桃李春风一壶酒，江湖夜雨十年灯。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -106,55 +106,62 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">Egret 游戏开发（一）：理解游戏生命周期</h2>
-            <div class="post-date">2019-10-13</div>
+            <h2 class="post-title">Android 拾遗（一）：9.png 图片制作</h2>
+            <div class="post-date">2019-10-29</div>
             
             <div class="post-content">
-              <p>一个游戏，具有自身的生命周期，从注册资源解析器、游戏资源预加载、游戏开始场景渲染、游戏主场景渲染…… 理解游戏生命周期，是开发游戏的第一步。</p>
+              <p>Android 开发中，9.png 图片是重要一环，以较小的图片尺寸，提供了自适应图片，适配不同手机分辨率，进行拉伸或压缩，减少了适配代码，也有较好的用户体验。</p>
 <!-- more -->
-<p>游戏资源，按照资源性质可划分为，游戏媒体资源、游戏逻辑代码。游戏媒体资源，体积远远大于游戏逻辑代码，加载时间也远远大于游戏逻辑代码，需要进行资源预加载。</p>
-<h4 id="注册资源解析器">注册资源解析器</h4>
-<ol>
-<li>游戏资源加载之前，需要注册资源解析器。</li>
-</ol>
-<h4 id="游戏资源预加载">游戏资源预加载</h4>
-<ol>
-<li>Loading素材加载</li>
-<li>Loading场景渲染</li>
-<li>其他游戏资源加载</li>
-<li>游戏皮肤主题加载</li>
-<li>退出Loading场景</li>
-</ol>
-<h4 id="游戏场景渲染">游戏场景渲染</h4>
-<h5 id="游戏开始场景渲染">游戏开始场景渲染</h5>
-<ol>
-<li>单机游戏：开始菜单（创建新游戏、游戏存档读取、游戏配置选择）。</li>
-<li>网络游戏：账号登录、服务器选择、开始菜单（菜单内容不固定）。</li>
-</ol>
-<h4 id="游戏主场景渲染">游戏主场景渲染</h4>
-<p>游戏主场景，往往和游戏类型，策划内容相关，是游戏策划内容的直接体现。</p>
-<ol>
-<li>文字剧情类。以问答对话为中心。</li>
-<li>角色扮演类。以游戏地图为中心。</li>
-<li>第一人称射击。以第一人称射击视野为中心。</li>
-<li>即时战略类。以游戏多方对战为中心。</li>
-<li>战棋类。以游戏对战规则设计为中心。</li>
-<li>模拟经营类。以经营主体发展结果为中心。</li>
-</ol>
-<h5 id="游戏结束场景渲染">游戏结束场景渲染</h5>
-<ol>
-<li>单机游戏：结束动画、游戏成绩统计。</li>
-<li>网络游戏：可能没有，直接回到开始场景。</li>
-</ol>
+<h4 id="对比普通-png-图片和-9png-图片">对比：普通 png 图片和 9.png 图片</h4>
+<ul>
+<li>命名差异：<code>9.png 图片</code> 本质上还是 <code>png 图片</code>，只是在文件命名上标记上 <code>9.png</code>，以区别于<code>普通 png</code>图片，在安卓开发中用于适配工作。</li>
+<li>内容差异：<code>9.png 图片</code> 在图片上下左右四边缘，绘制四条黑色直线，用于确定 <code>9.png 图片</code> 的内容范围，以及拉伸程度。</li>
+</ul>
+<h4 id="制作android-studio-制作-9png-图片">制作：Android Studio 制作 9.png 图片</h4>
+<ul>
+<li>准备好待制作的 <code>png 图片</code>，重命名为 <code>xxx.9.png</code>，放入 drawable 文件夹下。在 Android Studio 中，双击打开 <code>xxx.9.png</code> 会显示 <code>9.png</code> 图片编辑器。</li>
+<li>鼠标移动到图片的上、下、左、右四个方向的边缘，等到鼠标箭头编程可拖动状态，分别拖动编辑出四条黑线。</li>
+</ul>
+<h4 id="细节9png-图片的上下左右的黑线作用">细节：9.png 图片的上下左右的黑线作用</h4>
+<h5 id="拉伸区域控制">拉伸区域控制</h5>
+<ul>
+<li>左边黑线：纵向拉伸区域，必须要画的，控制纵向拉伸区域。</li>
+<li>上边黑线：横向拉伸区域，必须要画的，控制横向拉伸区域。<br>
+<img src="https://sky111144.github.io/post-images/1572356899600.jpg" alt=""></li>
+</ul>
+<h5 id="内容区域控制">内容区域控制</h5>
+<ul>
+<li>右边黑线：可选，纵向内容显示区域<br>
+<img src="https://sky111144.github.io/post-images/1572357350180.jpg" alt=""></li>
+<li>下边黑线：可选，横向内容显示区域<br>
+<img src="https://sky111144.github.io/post-images/1572357373012.jpg" alt=""></li>
+</ul>
+<h5 id="代码示例">代码示例</h5>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    xmlns=&quot;http://schemas.android.com/apk/res-auto&quot;
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;TextView
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:background=&quot;@drawable/bubble&quot;
+        android:text=&quot;Hello World&quot; /&gt;
+
+&lt;/RelativeLayout&gt;
+</code></pre>
 
             </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://sky111144.github.io/post/qian-duan-dong-hua-jie-jue-fang-an">
+                <a href="https://sky111144.github.io/post/qian-duan-diao-shi-li-qi-2">
                   <h3 class="post-title">
-                    前端动画方案（一）：对比六种技术思路的差异
+                    前端调试利器（二）：Charles
                   </h3>
                 </a>
               </div>
