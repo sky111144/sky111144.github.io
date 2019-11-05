@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Android | 一叶知秋</title>
+<title>Android 拾遗（二）：应用签名打包 | 一叶知秋</title>
 <meta name="description" content="桃李春风一壶酒，江湖夜雨十年灯。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,6 +13,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://sky111144.github.io/styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -99,29 +105,61 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: Android</h2>
-          
-            <article class="post-item">
-              <div class="left">
+          <div class="post-detail">
+            <h2 class="post-title">Android 拾遗（二）：应用签名打包</h2>
+            <div class="post-date">2019-11-05</div>
+            
+            <div class="post-content">
+              <p>Android 应用开发到一定阶段后，需要打出上线的安装包，在真机上面安装调试。</p>
+<!-- more -->
+<h4 id="应用签名打包流程">应用签名打包流程</h4>
+<h5 id="打开项目">打开项目</h5>
+<figure data-type="image" tabindex="1"><img src="https://sky111144.github.io/post-images/1572952775131.jpg" alt=""></figure>
+<h5 id="生成签名包">生成签名包</h5>
+<p><img src="https://sky111144.github.io/post-images/1572952961074.jpg" alt=""><br>
+<img src="https://sky111144.github.io/post-images/1572953126254.jpg" alt=""><br>
+<img src="https://sky111144.github.io/post-images/1572953229054.jpg" alt=""><br>
+<img src="https://sky111144.github.io/post-images/1572953355149.jpg" alt=""><br>
+<img src="https://sky111144.github.io/post-images/1572953584943.jpg" alt=""><br>
+<img src="https://sky111144.github.io/post-images/1572953823275.jpg" alt=""><br>
+<img src="https://sky111144.github.io/post-images/1572953899886.jpg" alt=""></p>
+<h5 id="验证签名">验证签名</h5>
+<pre><code class="language-bash">jarsigner -verbose -certs -verify $AppPath
+</code></pre>
+<h4 id="实验环境">实验环境</h4>
+<ul>
+<li>macOS <code>Hign Sierra，10.13.6</code></li>
+<li>JAVA SDK：<code>1.8.0_171</code></li>
+<li>Android Studio：<code>3.1.2</code></li>
+<li>Android API：<code>Android 6.0，Marshmallow，API 23</code></li>
+</ul>
+<h4 id="注意细节">注意细节</h4>
+<ul>
+<li>真机安装，尽量避免使用 <code>adb</code> 安装，模拟用户安装路径。</li>
+</ul>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
                 <a href="https://sky111144.github.io/post/android-shi-yi-yi-9png-1">
-                  <h2 class="post-title">Android 拾遗（一）：9.png 图片制作</h2>
+                  <h3 class="post-title">
+                    Android 拾遗（一）：9.png 图片制作
+                  </h3>
                 </a>
-                <div class="post-date">
-                  2019-10-29
-                </div>
-                <div class="post-abstract">
-                  <p>Android 开发中，9.png 图片是重要一环，以较小的图片尺寸，提供了自适应图片，适配不同手机分辨率，进行拉伸或压缩，减少了适配代码，也有较好的用户体验。</p>
-
-                </div>
               </div>
-              
-            </article>
-          
+            
 
-          <div class="pagination-container">
-  
-  
-</div>
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
 
         </div>
       </div>
@@ -143,6 +181,29 @@ var app = new Vue({
 })
 
 </script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'f67588f2050acf0eac00',
+        clientSecret: '4e0e619daea6e2d8a6eaccb00e339762224b2f73',
+        repo: 'sky111144.github.io',
+        owner: 'sky111144',
+        admin: ['sky111144'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 

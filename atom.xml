@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sky111144.github.io</id>
     <title>一叶知秋</title>
-    <updated>2019-10-31T04:23:38.253Z</updated>
+    <updated>2019-11-05T11:40:11.763Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://sky111144.github.io"/>
     <link rel="self" href="https://sky111144.github.io/atom.xml"/>
@@ -10,6 +10,17 @@
     <logo>https://sky111144.github.io/images/avatar.png</logo>
     <icon>https://sky111144.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 一叶知秋</rights>
+    <entry>
+        <title type="html"><![CDATA[Android 拾遗（二）：应用签名打包]]></title>
+        <id>https://sky111144.github.io/post/android-shi-yi-er-ying-yong-qian-ming-da-bao</id>
+        <link href="https://sky111144.github.io/post/android-shi-yi-er-ying-yong-qian-ming-da-bao">
+        </link>
+        <updated>2019-11-05T10:34:38.000Z</updated>
+        <summary type="html"><![CDATA[<p>Android 应用开发到一定阶段后，需要打出上线的安装包，在真机上面安装调试。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Android 应用开发到一定阶段后，需要打出上线的安装包，在真机上面安装调试。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Android 拾遗（一）：9.png 图片制作]]></title>
         <id>https://sky111144.github.io/post/android-shi-yi-yi-9png-1</id>
