@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>前端动画方案（二）：GIF | 一叶知秋</title>
+<title>Android 拾遗（三）：ApkTool | 一叶知秋</title>
 <meta name="description" content="桃李春风一壶酒，江湖夜雨十年灯。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -106,62 +106,63 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">前端动画方案（二）：GIF</h2>
-            <div class="post-date">2019-10-16</div>
+            <h2 class="post-title">Android 拾遗（三）：ApkTool</h2>
+            <div class="post-date">2019-11-09</div>
             
             <div class="post-content">
-              <p>GIF，互联网界的老古董，诞生于1987年，是一种图片格式。由于，支持多帧动画，而且兼容性好，制作简单，是一种使用广泛的解决方案。</p>
+              <p>ApkTool 是安卓开发中较常用的逆向工具，功能强大。</p>
 <!-- more -->
-<h4 id="gif-内容简介">GIF 内容简介</h4>
-<pre><code>GIF 是一种位图图形文件格式，最多支持 256 种颜色，使用 LZW 压缩算法，可无损压缩，以点阵的形式保存图形信息。
+<h3 id="实验环境">实验环境</h3>
+<ul>
+<li>macOS <code>Hign Sierra，10.13.6</code></li>
+<li>JAVA SDK：<code>1.8.0_171</code></li>
+<li>Android Studio：<code>3.1.2</code></li>
+<li>Android API：<code>Android 6.0，Marshmallow，API 23</code></li>
+</ul>
+<h3 id="下载安装"><a href="https://ibotpeaches.github.io/Apktool/install/">下载安装</a></h3>
+<h5 id="包裹脚本下载">包裹脚本下载</h5>
+<ol>
+<li><a href="https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/osx/apktool">包裹脚本链接</a></li>
+<li>打开该网页后，<code>Ctrl/Command + S</code> 保存到本地，命名为 <code>apktool</code>。<br>
+<img src="https://sky111144.github.io/post-images/1573289499256.jpg" alt=""></li>
+</ol>
+<h5 id="jar-包下载">jar 包下载</h5>
+<ol>
+<li><a href="https://bitbucket.org/iBotPeaches/apktool/downloads/">jar包下载列表</a><br>
+<img src="https://sky111144.github.io/post-images/1573289630739.jpg" alt=""></li>
+<li>下载需要的版本，将下载好的包，重命名为 <code>apktool.jar</code>。</li>
+</ol>
+<pre><code class="language-bash">mv /you_path/apktool_2.4.0.jar /you_path/apktool.jar
 </code></pre>
-<ol>
-<li>LZW 压缩算法</li>
-<li>256 索引色盘</li>
-</ol>
-<hr>
-<h4 id="gif-使用场景">GIF 使用场景</h4>
-<ol>
-<li>短视频</li>
-<li>逐帧动画</li>
-</ol>
-<hr>
-<h4 id="gif-制作方法">GIF 制作方法</h4>
-<pre><code>使用 PhotoShop 制作 GIF，简单快捷，功能强大，是一个不错的选择。
-以 PhotoShop CC （14.0 macoOS）为例，介绍一下 GIF 的两种主要制作方法。
+<h5 id="移动到系统可执行文件目录">移动到系统可执行文件目录</h5>
+<pre><code class="language-bash"># 1. 移动包裹脚本
+mv /you_path/apktool /usr/local/bin
+
+# 2. 移动 jar 包
+mv /you_path/apktool.jar /usr/local/bin
+
+# 3. 授权
+cd /usr/local/bin
+chmod +x apktool
+chmod +x apktool.jar
 </code></pre>
-<h5 id="逐帧创作">逐帧创作</h5>
-<ol>
-<li>新建画板<br>
-<img src="https://sky111144.github.io/post-images/1571650696832.jpg" alt=""></li>
-<li>打开时间轴<br>
-<img src="https://sky111144.github.io/post-images/1571650955585.jpg" alt=""></li>
-<li>新建帧动画<br>
-<img src="https://sky111144.github.io/post-images/1571651045726.jpg" alt=""></li>
-<li>新建帧<br>
-<img src="https://sky111144.github.io/post-images/1571651124966.jpg" alt=""></li>
-<li>编辑帧<br>
-<img src="https://sky111144.github.io/post-images/1571652459781.jpg" alt=""></li>
-<li>导出 GIF<br>
-<img src="https://sky111144.github.io/post-images/1571652566876.jpg" alt=""><br>
-<img src="https://sky111144.github.io/post-images/1571652701588.jpg" alt=""></li>
-</ol>
-<h5 id="视频导出">视频导出</h5>
-<ol>
-<li>导入视频<br>
-<img src="https://sky111144.github.io/post-images/1571822390809.jpg" alt=""><br>
-<img src="https://sky111144.github.io/post-images/1571822588020.jpg" alt=""></li>
-<li>导出 GIF<br>
-<img src="https://sky111144.github.io/post-images/1571822967090.jpg" alt=""><br>
-<img src="https://sky111144.github.io/post-images/1571823157597.jpg" alt=""></li>
-</ol>
+<h5 id="检验测试">检验测试</h5>
+<pre><code class="language-bash">apktool --version
+</code></pre>
+<h4 id="基本使用">基本使用</h4>
+<pre><code class="language-bash"># 反编译 apk 文件
+apktool d yourapp.apk
+
+# 重新打包被反编译的文件
+apktool b yourapp
+</code></pre>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://sky111144.github.io/tag/Iaz4xAbDx" class="tag">
-                    前端技术
+                  <a href="https://sky111144.github.io/tag/kW0WZeSnj" class="tag">
+                    Android
                   </a>
                 
               </div>
@@ -169,9 +170,9 @@
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://sky111144.github.io/post/egret-you-xi-kai-fa-li-jie-you-xi-sheng-ming-zhou-qi">
+                <a href="https://sky111144.github.io/post/android-shi-yi-er-ying-yong-qian-ming-da-bao">
                   <h3 class="post-title">
-                    Egret 游戏开发（一）：理解游戏生命周期
+                    Android 拾遗（二）：应用签名打包
                   </h3>
                 </a>
               </div>
