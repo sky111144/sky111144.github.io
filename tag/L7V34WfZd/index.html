@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Android 拾遗（四）：Android Debug Bridge | 一叶知秋</title>
+<title>动画 | 一叶知秋</title>
 <meta name="description" content="桃李春风一壶酒，江湖夜雨十年灯。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,12 +13,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://sky111144.github.io/styles/main.css">
 
-
-  
-    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
-  
-
-  
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -105,70 +99,29 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">Android 拾遗（四）：Android Debug Bridge</h2>
-            <div class="post-date">2019-11-11</div>
-            
-            <div class="post-content">
-              <p>Android Debug Bridge，简称 adb，是安卓前端开发的利器，能让开发者在 PC 上高效的进行开发调试工作。</p>
-<!-- more -->
-<h4 id="调试准备工作">调试准备工作</h4>
-<ol>
-<li>USB 连接电脑和手机。</li>
-<li>开启手机开发者模式。各个厂商定制的安卓手机系统，开发者模式的有不同开启方式，搜索引擎搜索对应手机的教程即可。</li>
-<li>检测是否连接成功。</li>
-</ol>
-<pre><code class="language-bash"># 查看连接设备列表
-adb devices
-</code></pre>
-<h4 id="录制手机屏幕">录制手机屏幕</h4>
-<pre><code class="language-bash"># 注意：录制视频的默认录制时间是 180 秒
-# 注意：录制视频的最长录制时间是 180 秒
-
-# 开始录屏，以 mp4 格式保存在 /sdcard
-adb shell screenrecord /sdcard/demo.mp4
-
-# 停止录屏：Control + C
-</code></pre>
-<h4 id="文件管理">文件管理</h4>
-<h5 id="复制手机文件到电脑">复制手机文件到电脑</h5>
-<pre><code class="language-bash"># 命令格式
-adb pull &lt;手机设备文件路径&gt; &lt;电脑设备文件目录&gt;
-
-# 将手机文件 /sdcard/demo.mp4 复制到电脑文件夹 /tmp 下
-adb pull /sdcard/demo.mp4 /tmp
-</code></pre>
-
-            </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://sky111144.github.io/tag/kW0WZeSnj" class="tag">
-                    Android
-                  </a>
-                
-              </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://sky111144.github.io/post/android-shi-yi-san-apktool">
-                  <h3 class="post-title">
-                    Android 拾遗（三）：ApkTool
-                  </h3>
+          <h2 class="current-tag">标签: 动画</h2>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://sky111144.github.io/post/qian-duan-dong-hua-fang-an-san-video">
+                  <h2 class="post-title">前端动画方案（三）：video</h2>
                 </a>
+                <div class="post-date">
+                  2019-11-13
+                </div>
+                <div class="post-abstract">
+                  <p>自从浏览器支持 <code>HTML5</code> 标准后，<code>video</code> 在动画领域提供了新的解决方案，扩展了开发者在解决业务问题的工具箱。</p>
+
+                </div>
               </div>
-            
-
-            
               
-                <div id="gitalk-container" data-aos="fade-in"></div>
-              
+            </article>
+          
 
-              
-            
-
-          </div>
+          <div class="pagination-container">
+  
+  
+</div>
 
         </div>
       </div>
@@ -190,29 +143,6 @@ var app = new Vue({
 })
 
 </script>
-
-
-
-  
-    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-    <script>
-
-      var gitalk = new Gitalk({
-        clientID: 'f67588f2050acf0eac00',
-        clientSecret: '4e0e619daea6e2d8a6eaccb00e339762224b2f73',
-        repo: 'sky111144.github.io',
-        owner: 'sky111144',
-        admin: ['sky111144'],
-        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-        distractionFreeMode: false  // Facebook-like distraction free mode
-      })
-
-      gitalk.render('gitalk-container')
-
-    </script>
-  
-
-  
 
 
 
