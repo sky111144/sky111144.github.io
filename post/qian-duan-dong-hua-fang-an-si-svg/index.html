@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>动画 | 一叶知秋</title>
+<title>前端动画方案（四）：SVG | 一叶知秋</title>
 <meta name="description" content="桃李春风一壶酒，江湖夜雨十年灯。">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,6 +13,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://sky111144.github.io/styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -99,77 +105,86 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: 动画</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://sky111144.github.io/post/qian-duan-dong-hua-fang-an-si-svg">
-                  <h2 class="post-title">前端动画方案（四）：SVG</h2>
-                </a>
-                <div class="post-date">
-                  2019-11-14
-                </div>
-                <div class="post-abstract">
-                  <p>SVG 是可伸缩矢量图形 (Scalable Vector Graphics)，浏览器兼容性好，图形绘制功能好用，但有一定的学习成本。</p>
+          <div class="post-detail">
+            <h2 class="post-title">前端动画方案（四）：SVG</h2>
+            <div class="post-date">2019-11-14</div>
+            
+            <div class="post-content">
+              <p>SVG 是可伸缩矢量图形 (Scalable Vector Graphics)，浏览器兼容性好，图形绘制功能好用，但有一定的学习成本。</p>
+<!-- more -->
+<h3 id="svg-内容简介">SVG 内容简介</h3>
+<h4 id="svg-技术特点">SVG 技术特点</h4>
+<ul>
+<li>SVG 使用 XML 格式定义图形，SVG 文件是纯粹的 XML。</li>
+<li>SVG 图像在放大或改变尺寸的情况下其图形质量不会有所损失。</li>
+<li>SVG 于 2003 年 1 月 14 日成为 W3C 推荐标准，各个浏览器兼容性好。</li>
+</ul>
+<h4 id="svg-使用场景">SVG 使用场景</h4>
+<ul>
+<li>矢量动画，能用几何知识规则描述的动画。</li>
+</ul>
+<h4 id="svg-使用方式">SVG 使用方式</h4>
+<ol>
+<li>embed 标签</li>
+<li>object 标签</li>
+<li>iframe 标签</li>
+<li>a 标签</li>
+<li>HTML 内联</li>
+</ol>
+<h4 id="svg-绘图类型">SVG 绘图类型</h4>
+<ol>
+<li>矩形</li>
+<li>圆形</li>
+<li>椭圆</li>
+<li>直线</li>
+<li>多边形</li>
+<li>曲线</li>
+<li>路径</li>
+<li>文本</li>
+</ol>
+<h4 id="svg-特效类型">SVG 特效类型</h4>
+<ol>
+<li>填充（Stroke）</li>
+<li>滤镜（Filter）</li>
+<li>模糊（Blur）</li>
+<li>阴影（Shadow）</li>
+<li>渐变（Gradient）</li>
+</ol>
 
-                </div>
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://sky111144.github.io/tag/L7V34WfZd" class="tag">
+                    动画
+                  </a>
+                
+                  <a href="https://sky111144.github.io/tag/Iaz4xAbDx" class="tag">
+                    前端技术
+                  </a>
+                
               </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
                 <a href="https://sky111144.github.io/post/qian-duan-dong-hua-fang-an-san-video">
-                  <h2 class="post-title">前端动画方案（三）：视频</h2>
+                  <h3 class="post-title">
+                    前端动画方案（三）：视频
+                  </h3>
                 </a>
-                <div class="post-date">
-                  2019-11-13
-                </div>
-                <div class="post-abstract">
-                  <p>自从浏览器支持 <code>HTML5</code> 标准后，<code>video</code> 在动画领域提供了新的解决方案，扩展了开发者在解决业务问题的工具箱。</p>
-
-                </div>
               </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://sky111144.github.io/post/qian-duan-dong-hua-jie-jue-fang-an-er-gif">
-                  <h2 class="post-title">前端动画方案（二）：GIF</h2>
-                </a>
-                <div class="post-date">
-                  2019-10-16
-                </div>
-                <div class="post-abstract">
-                  <p>GIF，互联网界的老古董，诞生于1987年，是一种图片格式。由于，支持多帧动画，而且兼容性好，制作简单，是一种使用广泛的解决方案。</p>
+            
 
-                </div>
-              </div>
+            
               
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://sky111144.github.io/post/qian-duan-dong-hua-jie-jue-fang-an">
-                  <h2 class="post-title">前端动画方案（一）：对比六种技术思路的差异</h2>
-                </a>
-                <div class="post-date">
-                  2019-10-11
-                </div>
-                <div class="post-abstract">
-                  <p>前端动画解决方案，致力于通过动画更加优化的表达网页信息，是一个成型的特定技术领域。</p>
-
-                </div>
-              </div>
+                <div id="gitalk-container" data-aos="fade-in"></div>
               
-            </article>
-          
 
-          <div class="pagination-container">
-  
-  
-</div>
+              
+            
+
+          </div>
 
         </div>
       </div>
@@ -191,6 +206,29 @@ var app = new Vue({
 })
 
 </script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'f67588f2050acf0eac00',
+        clientSecret: '4e0e619daea6e2d8a6eaccb00e339762224b2f73',
+        repo: 'sky111144.github.io',
+        owner: 'sky111144',
+        admin: ['sky111144'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 
